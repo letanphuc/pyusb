@@ -960,6 +960,8 @@ class _LibUSB(usb.backend.IBackend):
 
 def get_backend(find_library=None):
     global _lib, _lib_object
+    # Reset lib to relist all devices
+    _lib_object = None
     try:
         if _lib_object is None:
             _lib = _load_library(find_library=find_library)
